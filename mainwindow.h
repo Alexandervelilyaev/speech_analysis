@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QObject>
+#include "microphone.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,10 +19,14 @@ public:
 
 private slots:
     void on_toggleListeningButton_clicked();
+    void onMicrophoneValueChanged(int value);
 
 private:
     Ui::MainWindow *ui;
 
+    Microphone *microphone;
+
     bool mIsListening;
+
 };
 #endif // MAINWINDOW_H
